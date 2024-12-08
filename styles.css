@@ -5,12 +5,10 @@
   list-style: none;
   vertical-align: baseline;
 }
-
 div {
   position: relative;
   z-index: 2;
 }
-
 body {
   background-color: #333;
   color: #333;
@@ -21,7 +19,16 @@ body {
   align-items: center;
   height: 100vh;
 }
-
+a img {
+  position: absolute;
+  top: 20px;
+  left:20px;
+  border-radius: 15px;
+}
+a img:hover {
+  scale: 1.5;
+  transition: 0.5s ease-in-out
+}
 #quote-box {
   border-radius: 3px;
   position: relative;
@@ -32,7 +39,7 @@ body {
   border-radius: 20px;
 }
 #quote-box .quote-text {
-  text-align: center;  /*#11: The #quote-box wrapper element is horizontally centered*/
+  text-align: center;
   width: 450px;
   height: auto;
   clear: both;
