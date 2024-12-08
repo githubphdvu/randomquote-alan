@@ -2,26 +2,107 @@
 <html>
 <head>
   <link rel="icon" href="https://projectsav.netlify.app/logo1.jpg">
-  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
   <title>RandomQuote</title>
+  <style>
+body {
+  color:aqua;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+a img {
+  position: absolute;
+  top: 20px;
+  left:20px;
+  height: 65px;
+  border-radius: 15px;
+}
+a img:hover {
+  scale: 1.5;
+  transition: 0.5s ease-in-out;
+}
+.lampset {
+  position: absolute;
+  top: 0;
+  left: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#lamp {
+  height: 250px;
+  width:150px;
+}
+#light {
+  margin-left: -12px;
+  transition: opacity 0;
+  height: 270px;
+  width:550px;
+}
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: fuchsia;
+  color: white;
+  border-radius: 10px;
+}
+button:hover {
+  scale: 1.5;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+#quote-box {
+  position: absolute;
+  top: 75%;
+  align-items: center;
+  justify-content: center;
+  width: full;
+  height: screen;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.quote-text {
+  text-align: center;
+  width: 1000px;
+  height: auto;
+  font-size: 1.2rem;
+}
+.quote-author {
+  width: 450px;
+  height: auto;
+  clear: both;
+  padding-top: 20px;
+  color: white;
+  text-align: center;
+}
+  </style>
 </head>
 <body>
-  <a href="https://projectsav.netlify.app/"><img src="https://projectsav.netlify.app/logo1.jpg" style='height:70px'></a>
+  <a href="https://projectsav.netlify.app/"><img src="https://projectsav.netlify.app/logo1.jpg"></a>
+
+  <div class='lampset'>
+    <span><button id="light-on">Turn Light On</button><button id="light-off">Turn Light Off</button></span>
+    <img id='lamp' src="lamp.jpg" alt="">
+    <img id='light' src="light.jpg" alt="">
+  </div>
+
   <div id="quote-box">
     <div class="quote-text">
       <i class="fa fa-quote-left"> </i><span id="text"></span><i class="fa fa-quote-right"></i>
     </div>
     <div class="quote-author"><span id="author"></span></div>
-    <div class="buttons">
-      <button class="button" id="new-quote">Another Quote</button>
-      <a id="tweet-quote" title="Tweet this quote!" target="_top"><button class="button">Tweet this
-          Quote</button></a>
-    </div>
+    <button class="button" id="new-quote">Another Quote</button>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-  <script src="script.js"></script>
+<!-- -------------------------------------------- -->
+  <script>const _0x38b683=_0x17b3;(function(_0x1f5d14,_0x150415){const _0x5327c7=_0x17b3,_0x45848d=_0x1f5d14();while(!![]){try{const _0xc9e225=parseInt(_0x5327c7(0x8b))/0x1+parseInt(_0x5327c7(0xa0))/0x2+parseInt(_0x5327c7(0xa4))/0x3*(parseInt(_0x5327c7(0x9e))/0x4)+parseInt(_0x5327c7(0xa2))/0x5*(-parseInt(_0x5327c7(0x94))/0x6)+parseInt(_0x5327c7(0x9c))/0x7+-parseInt(_0x5327c7(0x98))/0x8+-parseInt(_0x5327c7(0x8a))/0x9;if(_0xc9e225===_0x150415)break;else _0x45848d['push'](_0x45848d['shift']());}catch(_0x3a94b6){_0x45848d['push'](_0x45848d['shift']());}}}(_0x3b01,0x3aa47),$(_0x38b683(0x92))['click'](function(){const _0x1d2c92=_0x38b683;$(_0x1d2c92(0x8f))[_0x1d2c92(0x9b)]();}),$(_0x38b683(0x84))['click'](function(){const _0x3bfdfd=_0x38b683;$(_0x3bfdfd(0x8f))['fadeIn']();}));function _0x17b3(_0x113a1d,_0x46df08){const _0x3b0160=_0x3b01();return _0x17b3=function(_0x17b335,_0x6697d9){_0x17b335=_0x17b335-0x82;let _0x34ece4=_0x3b0160[_0x17b335];return _0x34ece4;},_0x17b3(_0x113a1d,_0x46df08);}const COLORS=['teal',_0x38b683(0x85),_0x38b683(0x9f),_0x38b683(0x89),_0x38b683(0x87),_0x38b683(0x8c)];let quotesData;function getQuotes(){const _0x5922bf=_0x38b683;return $[_0x5922bf(0x97)]({'headers':{'Accept':_0x5922bf(0x9d)},'url':_0x5922bf(0x99),'success':function(_0x576c92){const _0x1549be=_0x5922bf;if(typeof _0x576c92===_0x1549be(0x86))quotesData=JSON[_0x1549be(0x96)](_0x576c92);}});}function getRandomQuote(){const _0xd787af=_0x38b683;return quotesData[_0xd787af(0x83)][Math[_0xd787af(0xa5)](Math[_0xd787af(0x8e)]()*quotesData[_0xd787af(0x83)]['length'])];}function _0x3b01(){const _0x6b35de=['3197048jelKxB','https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json','quote','fadeOut','2260195PcYxep','application/json','4cfEebD','green','128376EsqUOo','body','509925JzOrTF','animate','493623izHQMS','floor','length','quotes','#light-on','blue','string','brown','#new-quote','red','837279LAFLHi','283232DJCmGd','orange','.quote-author','random','#light','author','then','#light-off','.quote-text','6qOyRSB','#author','parse','ajax'];_0x3b01=function(){return _0x6b35de;};return _0x3b01();}let currentQuote='',currentAuthor='';function getQuote(){const _0x41b497=_0x38b683;let _0x233964=getRandomQuote();currentQuote=_0x233964[_0x41b497(0x9a)],currentAuthor=_0x233964[_0x41b497(0x90)],$(_0x41b497(0x93))[_0x41b497(0xa3)]({'opacity':0x0},0x1f4,function(){const _0x3ddfd9=_0x41b497;$(this)['animate']({'opacity':0x1},0x1f4),$('#text')['text'](_0x233964[_0x3ddfd9(0x9a)]);}),$(_0x41b497(0x8d))['animate']({'opacity':0x0},0x1f4,function(){const _0x3bff0e=_0x41b497;$(this)[_0x3bff0e(0xa3)]({'opacity':0x1},0x1f4),$(_0x3bff0e(0x95))['html'](_0x233964[_0x3bff0e(0x90)]);}),$(_0x41b497(0xa1))['animate']({'color':COLORS[Math[_0x41b497(0xa5)](Math[_0x41b497(0x8e)]()*COLORS[_0x41b497(0x82)])]},0x3e8);}$(document)['ready'](function(){const _0x4a2c18=_0x38b683;getQuotes()[_0x4a2c18(0x91)](()=>getQuote()),$(_0x4a2c18(0x88))['on']('click',getQuote);});</script>
 </body>
 </html>
